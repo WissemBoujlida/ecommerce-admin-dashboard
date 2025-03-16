@@ -1,8 +1,5 @@
 ## Ecommerce Admin Dashboard
-This is a Next.js project bootstrapped with `create-next-app`.\
-After learning React and Next.js, I started building stuff.\
-Before starting my own projects, I wanted to see how experienced devs build web applications using modern technologies.\
-So here I'm trying to follow this great [tutorial](https://nextjs.org/docs/app/api-reference/cli/create-next-app) building an ecommerce platform.\
+Before starting my own projects, I wanted to see how experienced devs build web applications using modern technologies. So here I'm trying to follow this great [tutorial](https://www.youtube.com/watch?v=5miHyP6lExg) building an ecommerce platform.\
 This repo is only the admin dashboard.
 
 ## Getting Started
