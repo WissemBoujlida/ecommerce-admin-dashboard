@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 export async function PATCH(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> }
+  { params }: { params: Promise<{ storeId: string }> },
 ) {
   try {
     // use clerk to authenticate the route
@@ -39,8 +39,6 @@ export async function PATCH(
       },
     });
 
-    console.log("[STORES_PATCH]", store);
-
     return NextResponse.json(store);
   } catch (error) {
     console.log("[STORES_PATCH]", error);
@@ -50,7 +48,7 @@ export async function PATCH(
 
 export async function DELETE(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> }
+  { params }: { params: Promise<{ storeId: string }> },
 ) {
   try {
     // use clerk to authenticate the route

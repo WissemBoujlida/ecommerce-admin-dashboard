@@ -9,7 +9,7 @@ declare global {
 // Checks if globalThis.prisma already exists:
 // if yes, it reuses the existing PrismaClient instance.
 // If no, it creates a new PrismaClient instance.
-// This ensures that only one instance of the Prisma client exists
+// This ensures that only one instance of the Prisma client is created
 const prismadb = globalThis.prisma || new PrismaClient();
 
 // in dev mode, hot reloding would initiate a new instance of PrismaClient

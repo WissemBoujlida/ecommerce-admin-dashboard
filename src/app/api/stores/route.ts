@@ -8,15 +8,15 @@ export async function POST(req: Request) {
     // use clerk to authenticate the route
     const { userId } = await auth();
 
+    if (!userId) {
+      return new NextResponse("Unauthorized", { status: 401 });
+    }
+
     // parse the request body
     const body = await req.json();
 
     // destruct required fields from req body
     const { name } = body;
-
-    if (!userId) {
-      return new NextResponse("Unauthorized", { status: 401 });
-    }
 
     if (!name) {
       return new NextResponse("Name is required", { status: 400 });
