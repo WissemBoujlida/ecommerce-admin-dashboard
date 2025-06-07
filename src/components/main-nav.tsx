@@ -33,6 +33,11 @@ export function MainNav({
       label: "categories",
       active: pathname === `/${params.storeId}/categories`,
     },
+    {
+      href: `/${params.storeId}/sizes`,
+      label: "sizes",
+      active: pathname === `/${params.storeId}/sizes`,
+    },
   ];
   return (
     <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>
