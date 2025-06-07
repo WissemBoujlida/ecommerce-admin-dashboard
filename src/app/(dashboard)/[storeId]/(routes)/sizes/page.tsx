@@ -4,7 +4,7 @@ import { SizesClient } from "./components/sizes-client";
 import { SizeColumn } from "./components/columns";
 import prismadb from "@/lib/prismadb";
 
-export default async function BillboardsPage({
+export default async function SizePage({
   params,
 }: {
   params: Promise<{ storeId: string }>;
