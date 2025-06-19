@@ -14,8 +14,10 @@ model Store {
   userId     String
   billboards Billboard[] @relation("StoreToBillboard")
   categories Category[]  @relation("StoreToCategory")
+  products   Product[]   @relation("StoreToProduct")
   sizes      Size[]      @relation("StoreToSize")
   colors     Color[]     @relation("StoreToColor")
+  orders     Order[]     @relation("StoreToOrder")
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
 }
@@ -36,6 +38,7 @@ model Category {
   name        String
   storeId     String
   store       Store     @relation("StoreToCategory", fields: [storeId], references: [id])
+  products    Product[] @relation("CategoryToProduct")
   billboardId String
   billboard   Billboard @relation("BillboardToCategory", fields: [billboardId], references: [id])
   createdAt   DateTime  @default(now())
@@ -43,21 +46,76 @@ model Category {
 }
 
 model Size {
-  id        String   @id @default(uuid())
+  id        String    @id @default(uuid())
   name      String
   value     String
   storeId   String
-  store     Store    @relation("StoreToSize", fields: [storeId], references: [id])
+  store     Store     @relation("StoreToSize", fields: [storeId], references: [id])
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Color {
+  id        String    @id @default(uuid())
+  name      String
+  value     String
+  storeId   String
+  store     Store     @relation("StoreToColor", fields: [storeId], references: [id])
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+}
+
+model Product {
+  id         String      @id @default(uuid())
+  name       String
+  price      Decimal
+  isFeatured Boolean     @default(false)
+  isArchived Boolean     @default(false)
+  images     Image[]
+  storeId    String
+  store      Store       @relation("StoreToProduct", fields: [storeId], references: [id])
+  categoryId String
+  category   Category    @relation("CategoryToProduct", fields: [categoryId], references: [id])
+  sizeId     String
+  size       Size        @relation(fields: [sizeId], references: [id])
+  colorId    String
+  color      Color       @relation(fields: [colorId], references: [id])
+  OrderItems OrderItem[]
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+}
+
+model Image {
+  id        String   @id @default(uuid())
+  url       String
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Color {
-  id        String   @id @default(uuid())
-  name      String
-  value     String
+model Order {
+  id        String      @id @default(uuid())
+  isPaid    Boolean     @default(false)
+  // will be populated after the order has been paid
+  phone     String      @default("")
+  // will be populated after the order has been paid 
+  address   String      @default("")
+  items     OrderItem[]
   storeId   String
-  store     Store    @relation("StoreToColor", fields: [storeId], references: [id])
+  store     Store       @relation("StoreToOrder", fields: [storeId], references: [id])
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  orderId   String
+  Order     Order    @relation(fields: [orderId], references: [id])
+  productId String
+  product   Product  @relation(fields: [productId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
