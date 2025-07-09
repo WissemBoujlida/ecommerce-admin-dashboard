@@ -1,6 +1,6 @@
 ## Ecommerce Admin Dashboard
 Before starting my own projects, I wanted to see how experienced devs build web applications using modern technologies. So here I'm trying to follow this great [tutorial](https://www.youtube.com/watch?v=5miHyP6lExg) building an ecommerce platform.\
-This repo is only the admin dashboard.
+This repo is only the admin dashboard. Check out the [Storefront repo](https://github.com/WissemBoujlida/ecommerce-storefront).
 
 ## Getting Started
 install dependencies:
