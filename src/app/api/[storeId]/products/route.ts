@@ -9,7 +9,7 @@ export async function GET(
     params,
   }: {
     params: Promise<{ storeId: string }>;
-  },
+  }
 ) {
   try {
     const { storeId } = await params;
@@ -54,7 +54,7 @@ export async function GET(
 
 export async function POST(
   req: Request,
-  { params }: { params: Promise<{ storeId: string }> },
+  { params }: { params: Promise<{ storeId: string }> }
 ) {
   try {
     const { storeId } = await params;
