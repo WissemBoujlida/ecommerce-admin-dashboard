@@ -4,6 +4,7 @@ import { auth } from "@clerk/nextjs/server";
 
 import { MainNav } from "@/components/main-nav";
 import { StoreSwitcher } from "@/components/store-switcher";
+import { ThemeToggle } from "@/components/theme-toggle";
 import prismadb from "@/lib/prismadb";
 
 export async function Navbar() {
@@ -27,7 +28,7 @@ export async function Navbar() {
         <MainNav className="mx-6" />
 
         <div className="ml-auto flex items-center space-x-4">
-          <div>dark/light mode</div>
+          <ThemeToggle />
           <UserButton />
         </div>
       </div>
