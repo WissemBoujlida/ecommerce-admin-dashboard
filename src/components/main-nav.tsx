@@ -5,10 +5,7 @@ import { useParams, usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
-export function MainNav({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLElement>) {
+export function MainNav({ className }: React.HTMLAttributes<HTMLElement>) {
   const pathname = usePathname();
   const params = useParams();
 
@@ -64,7 +61,7 @@ export function MainNav({
             "text-sm capitalize font-medium transition-colors hover:text-primary",
             route.active
               ? "text-black dark:text-white"
-              : "text-muted-foreground",
+              : "text-muted-foreground"
           )}
         >
           {route.label}

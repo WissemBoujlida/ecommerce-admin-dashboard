@@ -75,7 +75,7 @@ export function BillboardForm({ billboard }: BillboardFormProps) {
       router.refresh();
       router.push(`/${params.storeId}/billboards`);
       toast.success(successToastMessage);
-    } catch (error) {
+    } catch {
       toast.error(errorToastMessage);
     } finally {
       setLoading(false);
@@ -91,7 +91,7 @@ export function BillboardForm({ billboard }: BillboardFormProps) {
       router.refresh();
       router.push(`/${params.storeId}/billboards`);
       toast.success("Billboard deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting billboard");
     } finally {
       setLoading(false);

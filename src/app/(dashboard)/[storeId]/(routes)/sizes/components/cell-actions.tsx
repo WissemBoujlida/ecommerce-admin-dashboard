@@ -38,7 +38,7 @@ export function CellActions({ data }: CellActionsProps) {
       router.refresh();
       router.push(`/${params.storeId}/sizes`);
       toast.success("Size deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting size");
     } finally {
       setLoading(false);

@@ -75,7 +75,7 @@ export function CategoryForm({ category, billboards }: CategoryFormProps) {
       if (category) {
         await axios.patch(
           `/api/${params.storeId}/categories/${params.categoryId}`,
-          data,
+          data
         );
       } else {
         await axios.post(`/api/${params.storeId}/categories`, data);
@@ -83,7 +83,7 @@ export function CategoryForm({ category, billboards }: CategoryFormProps) {
       router.refresh();
       router.push(`/${params.storeId}/categories`);
       toast.success(successToastMessage);
-    } catch (error) {
+    } catch {
       toast.error(errorToastMessage);
     } finally {
       setLoading(false);
@@ -94,12 +94,12 @@ export function CategoryForm({ category, billboards }: CategoryFormProps) {
     try {
       setLoading(true);
       await axios.delete(
-        `/api/${params.storeId}/categories/${params.categoryId}`,
+        `/api/${params.storeId}/categories/${params.categoryId}`
       );
       router.refresh();
       router.push(`/${params.storeId}/categories`);
       toast.success("Category deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting category");
     } finally {
       setLoading(false);

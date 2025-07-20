@@ -26,7 +26,7 @@ export function Modal({
   children,
 }: ModalProps) {
   // implement the onChange function which we're going to append to shadcn ui Dialog component
-  function onChange(open: Boolean) {
+  function onChange(open: boolean) {
     if (!open) {
       onClose();
     }

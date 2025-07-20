@@ -54,7 +54,7 @@ export function SettingsForm({ store }: SettingsFormProps) {
       await axios.patch(`/api/stores/${store.id}`, data);
       router.refresh();
       toast.success("Store updated");
-    } catch (error) {
+    } catch {
       toast.error("Error updating store");
     } finally {
       setLoading(false);
@@ -67,7 +67,7 @@ export function SettingsForm({ store }: SettingsFormProps) {
       await axios.delete(`/api/stores/${store.id}`);
       router.refresh();
       toast.success("Store deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting store");
     } finally {
       setLoading(false);

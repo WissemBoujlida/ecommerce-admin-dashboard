@@ -38,7 +38,7 @@ export function CellActions({ data }: CellActionsProps) {
       router.refresh();
       router.push(`/${params.storeId}/billboards`);
       toast.success("Billboard deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting billboard");
     } finally {
       setLoading(false);

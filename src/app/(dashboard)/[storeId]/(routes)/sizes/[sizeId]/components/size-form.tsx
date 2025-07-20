@@ -62,7 +62,7 @@ export function SizeForm({ size }: SizeFormProps) {
       if (size) {
         await axios.patch(
           `/api/${params.storeId}/sizes/${params.sizeId}`,
-          data,
+          data
         );
       } else {
         await axios.post(`/api/${params.storeId}/sizes`, data);
@@ -70,7 +70,7 @@ export function SizeForm({ size }: SizeFormProps) {
       router.refresh();
       router.push(`/${params.storeId}/sizes`);
       toast.success(successToastMessage);
-    } catch (error) {
+    } catch {
       toast.error(errorToastMessage);
     } finally {
       setLoading(false);
@@ -84,7 +84,7 @@ export function SizeForm({ size }: SizeFormProps) {
       router.refresh();
       router.push(`/${params.storeId}/sizes`);
       toast.success("Size deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting size");
     } finally {
       setLoading(false);

@@ -96,7 +96,7 @@ export function ProductForm({
       if (product) {
         await axios.patch(
           `/api/${params.storeId}/products/${params.productId}`,
-          data,
+          data
         );
       } else {
         await axios.post(`/api/${params.storeId}/products`, data);
@@ -104,7 +104,7 @@ export function ProductForm({
       router.refresh();
       router.push(`/${params.storeId}/products`);
       toast.success(successToastMessage);
-    } catch (error) {
+    } catch {
       toast.error(errorToastMessage);
     } finally {
       setLoading(false);
@@ -118,7 +118,7 @@ export function ProductForm({
       router.refresh();
       router.push(`/${params.storeId}/products`);
       toast.success("Product deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting product");
     } finally {
       setLoading(false);
@@ -208,7 +208,7 @@ export function ProductForm({
                       field.onChange(
                         form
                           .getValues("images")
-                          .filter((image) => image.url !== url),
+                          .filter((image) => image.url !== url)
                       );
                     }}
                     urls={field.value.map((image) => image.url)}

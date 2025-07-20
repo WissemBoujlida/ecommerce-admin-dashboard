@@ -38,7 +38,7 @@ export function CellActions({ data }: CellActionsProps) {
       router.refresh();
       router.push(`/${params.storeId}/colors`);
       toast.success("Color deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting color");
     } finally {
       setLoading(false);

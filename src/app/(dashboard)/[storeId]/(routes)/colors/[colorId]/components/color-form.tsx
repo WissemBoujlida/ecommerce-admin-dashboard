@@ -62,7 +62,7 @@ export function ColorForm({ color }: ColorFormProps) {
       if (color) {
         await axios.patch(
           `/api/${params.storeId}/colors/${params.colorId}`,
-          data,
+          data
         );
       } else {
         await axios.post(`/api/${params.storeId}/colors`, data);
@@ -70,7 +70,7 @@ export function ColorForm({ color }: ColorFormProps) {
       router.refresh();
       router.push(`/${params.storeId}/colors`);
       toast.success(successToastMessage);
-    } catch (error) {
+    } catch {
       toast.error(errorToastMessage);
     } finally {
       setLoading(false);
@@ -84,7 +84,7 @@ export function ColorForm({ color }: ColorFormProps) {
       router.refresh();
       router.push(`/${params.storeId}/colors`);
       toast.success("Color deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting color");
     } finally {
       setLoading(false);

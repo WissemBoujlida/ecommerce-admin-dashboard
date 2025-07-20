@@ -38,7 +38,7 @@ export function CellActions({ data }: CellActionsProps) {
       router.refresh();
       router.push(`/${params.storeId}/products`);
       toast.success("Product deleted");
-    } catch (error) {
+    } catch {
       toast.error("Error deleting product");
     } finally {
       setLoading(false);
