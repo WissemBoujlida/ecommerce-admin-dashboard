@@ -25,4 +25,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Clerk
 
 ## Deployment
-- TODO
+- Vercel
+
+# Links
+[Admin dashboard](https://ecommerce-admin-dashboard-coral.vercel.app)
